@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeExit Chat</title>
+<link rel="stylesheet" href="chat-style.css">
+</head>
+<body>
+
+<div class="chat-container">
+
+  <!-- Contacts Sidebar -->
+  <div class="contacts">
+    <h2>Contacts</h2>
+    <ul id="contactList"></ul>
+  </div>
+
+  <!-- Chat Area -->
+  <div class="chat-area">
+    <div class="chat-header" id="chatHeader">Select a contact</div>
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="input-area">
+      <input type="text" id="messageInput" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Fake Call Screen -->
+<div class="fake-call hidden" id="callScreen">
+  <h2>Incoming Call...</h2>
+  <h1 id="callerName">Mom ❤️</h1>
+  <p id="timer">00:00</p>
+  <div class="btn-group">
+    <button class="accept" onclick="acceptCall()">Accept</button>
+    <button class="decline" onclick="declineCall()">Decline</button>
+  </div>
+</div>
+
+<audio id="ringtone" src="ringtone.mp3" loop></audio>
+<audio id="voice" src="momvoice.mp3"></audio>
+
+<script src="script1.js"></script>
+</body>
+</html>

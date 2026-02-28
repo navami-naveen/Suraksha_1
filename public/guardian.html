@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guardian Setup</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+
+<div class="container">
+<h2>Guardian Setup</h2>
+
+<input type="text" id="phone" placeholder="Enter Guardian Phone (+91...)">
+<button onclick="registerGuardian()">Save Phone</button>
+
+<h3>Tap Map To Add Safe Zones</h3>
+<div id="map"></div>
+
+<a href="elderly.html">
+<button class="secondary">Go To Elderly Mode</button>
+</a>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

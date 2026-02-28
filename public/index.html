@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeExit Setup</title>
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<div class="chat-style-container">
+
+  <h2>Welcome to SafeExit</h2>
+
+  <!-- Step 1: Name + Role -->
+  <div id="step1" class="card">
+    <input type="text" id="userName" placeholder="Enter your name">
+    <select id="userRole">
+      <option value="">Select Role</option>
+      <option value="woman">Woman</option>
+      <option value="elderly">Elderly</option>
+    </select>
+    <button onclick="nextStep()">Continue</button>
+  </div>
+
+  <!-- Step 2: Guardian List -->
+  <div id="step2" class="card hidden">
+    <h3>Add Guardian Contacts</h3>
+    <input type="text" id="guardianName" placeholder="Name">
+    <input type="text" id="guardianContact" placeholder="Email / Phone">
+    <button onclick="addGuardian()">Add</button>
+
+    <ul id="guardianList" class="guardian-list"></ul>
+    <button onclick="finishSetup()">Finish Setup</button>
+  </div>
+
+</div>
+
+<script>
+let guardianCircle = [];
+
+// Step 1: Save name and role
+function nextStep(){
+  const name = document.getElementById('userName').value.trim();
+  const role = document.getElementById('userRole').value;
+  if(!name || !role){ alert("Enter name and role"); return; }
+  localStorage.setItem('userName', name);
+  localStorage.setItem('userRole', role);
+  if(role==='woman'){
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+  } else {
+    window.location.href='dashboard.html'; // elderly dashboard
+  }
+}
+
+// Add guardian
+function addGuardian(){
+  const name = document.getElementById("guardianName").value.trim();
+  const contact = document.getElementById("guardianContact").value.trim();
+  if(name && contact){
+    guardianCircle.push({name, contact});
+    document.getElementById("guardianList").innerHTML =
+      guardianCircle.map(g => `<li>${g.name} (${g.contact})</li>`).join('');
+    document.getElementById("guardianName").value="";
+    document.getElementById("guardianContact").value="";
+  } else alert("Enter name and contact");
+}
+
+// Finish setup
+function finishSetup(){
+  if(guardianCircle.length===0){ alert("Add at least 1 guardian"); return; }
+  localStorage.setItem('guardianCircle', JSON.stringify(guardianCircle));
+  window.location.href='chat_disguise.html';
+}
+
+// Auto redirect if already setup
+window.onload = function(){
+  const role = localStorage.getItem('userRole');
+  if(role){
+    if(role==='woman') window.location.href='chat_disguise.html';
+    else window.location.href='dashboard.html';
+  }
+}
+</script>
+
+</body>
+</html>

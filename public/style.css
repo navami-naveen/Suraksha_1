@@ -1,0 +1,35 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f2f4f8;
+}
+
+.container {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    background: #007bff;
+    color: white;
+}
+
+.secondary {
+    background: #28a745;
+}
+
+#map {
+    height: 400px;
+    margin-top: 15px;
+}

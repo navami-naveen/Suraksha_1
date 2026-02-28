@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elderly Safe Zone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <style>
+        body { margin:0; font-family: Arial; text-align:center; }
+        h2 { background:#4CAF50; color:white; padding:15px; margin:0; }
+        #map { height:100vh; width:100%; }
+        input { width:70%; padding:10px; margin:10px; }
+        button { padding:10px 15px; margin:5px; border:none; border-radius:8px; }
+        .green { background:#4CAF50; color:white; }
+        .red { background:#f44336; color:white; }
+    </style>
+</head>
+<body>
+
+<h2>Elderly Dashboard</h2>
+
+<input type="text" id="searchInput" placeholder="Search location...">
+<button class="green" onclick="searchPlace()">Search</button>
+<br>
+<button class="green" onclick="enableZone()">Add Safe Zone</button>
+<button class="red" onclick="startTracking()">Start Tracking</button>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
